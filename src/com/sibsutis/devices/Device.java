@@ -1,5 +1,4 @@
 package src.com.sibsutis.devices;
-import java.util.Objects;
 import src.com.sibsutis.Printable;
 
 public abstract class Device implements Printable {
@@ -21,14 +20,24 @@ public abstract class Device implements Printable {
     public String getIp() {
         return ip;
     }
-
+    public abstract String getDeviceType();
     @Override
     public String print() {
             return "Device type: " + getDeviceType() + ", ID: " + id + ", Price: " + price + ", IP: " + (ip != null ? ip : "null");
     }
-    public abstract String getDeviceType();
     @Override
-    public abstract boolean equals(Object obj);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Device)) return false;
+        Device other = (Device) obj;
+        return id == other.id && price == other.price &&
+                (ip == null ? other.ip == null : ip.equals(other.ip));
+    }
     @Override
-    public abstract int hashCode();
+    public int hashCode() {
+        int result = Integer.hashCode(id);
+        result = 31 * result + Integer.hashCode(price);
+        result = 31 * result + (ip != null ? ip.hashCode() : 0);
+        return result;
+    }
 }
