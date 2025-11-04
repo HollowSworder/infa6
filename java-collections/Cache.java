@@ -10,4 +10,11 @@ public class Cache<T> {
         this.maxCountElements = maxCountElements;
         this.items = new ArrayList<T>();
     }
+
+    public void add(T item) {
+        if (items.size() >= maxCountElements) {
+            items.remove(0); 
+        }
+        items.add(item);
+    }
 }
