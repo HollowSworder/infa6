@@ -41,4 +41,7 @@ public class Cache<T> {
         }
         return items.get(i);
     }
+    public String toString() {
+        return "Cache: " + items.toString();
+    }
 }
