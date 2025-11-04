@@ -29,4 +29,10 @@ public class Cache<T> {
         }
         return items.get(0);
     }
+    public T getLast() {
+        if (items.isEmpty()) {
+            return null;
+        }
+        return items.get(items.size() - 1);
+    }
 }
