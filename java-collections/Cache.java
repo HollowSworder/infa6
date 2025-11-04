@@ -17,4 +17,7 @@ public class Cache<T> {
         }
         items.add(item);
     }
+    public boolean remove(T item) {
+        return items.remove(item);
+    }
 }
