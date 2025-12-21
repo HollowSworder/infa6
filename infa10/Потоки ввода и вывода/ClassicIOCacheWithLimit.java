@@ -129,7 +129,6 @@ public class ClassicIOCacheWithLimit {
     }
     
     public void printCacheStats() {
-        System.out.println("=== СТАТИСТИКА КЭША ===");
         System.out.println("Количество файлов: " + getCachedFilesCount() + " / " + maxSize);
         System.out.println("Размер в памяти: " + getCacheSizeInMemory() + " байт");
         System.out.println("Закэшированные файлы:");
